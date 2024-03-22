@@ -10,7 +10,8 @@ To develop a Django application to store and retrieve data from a Book database 
 ## Entity Relationship Diagram
 
 
-![WhatsApp Image 2024-03-22 at 15 52 55_66d38c1f](https://github.com/pavi365/ORM/assets/115135775/c84358c3-1a90-402d-adb8-b5bca8e14256)
+![image](https://github.com/pavi365/ORM/assets/115135775/1d285731-92af-4c66-8a89-041b15e00664)
+
 
 
 ## DESIGN STEPS
@@ -29,27 +30,32 @@ Execute Django admin and create details for 10 books
 
 ## PROGRAM
 ```
-## MODELS.PY
+Models.py
 from django.db import models
 from django.contrib import admin
-class Employee (models.Model):
-    eid=models.IntegerField(primary_key=True)
-    name=models.CharField(max_length=100)
-    salary=models.IntegerField()
-    age=models.IntegerField()
-    email=models.EmailField()
- 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display=('eid','name','salary','age','email')
+# Create your models here.
+class BOOk(models.Model):
+    book_id=models.IntegerField(primary_key=True)
+    book_name=models.CharField(max_length=50)
+    publisher_name=models.CharField(max_length=50)
+    author_name=models.CharField(max_length=50)
+    publish_year=models.DateField()
 
-## ADMIN.PY
+class BookAdmin(admin.ModelAdmin):
+    list_display=('book_id','book_name','publisher_name','author_name','publish_year')
+
+Admin.py
 from django.contrib import admin
-from .models import Employee,EmployeeAdmin
-admin.site.register(Employee,EmployeeAdmin)
+from .models import BOOk,BookAdmin
+# Register your models here.
+
+admin.site.register(BOOk,BookAdmin)
+
 ```
 
 ## OUTPUT
-<img width="960" alt="image" src="https://github.com/pavi365/ORM/assets/115135775/eb240e94-6688-4f46-abfc-53fa324d97b1">
+<img width="958" alt="image" src="https://github.com/pavi365/ORM/assets/115135775/9dc23227-05fd-4b47-be03-4795043e9dd7">
+
 
 
 ## RESULT
